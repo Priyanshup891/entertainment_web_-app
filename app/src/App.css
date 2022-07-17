@@ -1,0 +1,21 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --dark-blue: hsl(230, 11%, 11%);
+    --red: rgb(211, 47, 39);
+    --medium-grey: hsl(240, 5%, 37%);
+    --white: hsl(0, 0%, 100%);
+}
+
+body{
+    font-family: 'Roboto', sans-serif;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: var(--medium-grey);
+}
+
