@@ -1,44 +1,31 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, useContext} from 'react';
 import './home.css';
-
+import EntertainContext from '../../Context/EntertainContext';
 import Trending from '../Trending/Trending';
 import Sections from '../Sections/Sections';
-
-import {fetchTrendingData, fetchMovies, fetchTvShowes} from '../../Services/api';
+import Loader from '../Loader/Loader';
 
 const Home = () => {
 
-    const [trending, setTrending] = useState([]);
-  const [movies, setMovies] = useState([]);
-  const [tvShowes, setTvShowes] = useState([]);
+  const {trending,fetchTrendingData,movies,fetchMovies,tvShowes,fetchTvShowes,isLoading,setIsLoading} = useContext(EntertainContext);
+
+   
+
 
   useEffect(() => {
-    const getTrendingData = async () => {
-      const response = await fetchTrendingData();
-      console.log(response.data.results);
-      setTrending(response.data.results);
-    }
-
-    const getMovies = async () => {
-      const response = await fetchMovies();
-      console.log(response.data.results);
-      setMovies(response.data.results);
-    }
-
-    const getTvShowes = async () => {
-      const response = await fetchTvShowes();
-      console.log(response.data.results);
-      setTvShowes(response.data.results);
-    }
-
-
-    getTrendingData();
-    getMovies();
-    getTvShowes();
+    setIsLoading(true);
+    fetchTrendingData();
+    fetchMovies();
+    fetchTvShowes();
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 5000);
   }, [])
 
   return (
     <div className='App'>
+      {
+        isLoading ? <Loader/> :
         <div className='entertainment-showcase'>
         <Trending trend={trending}/>
         <div className='section'>
@@ -46,6 +33,7 @@ const Home = () => {
         <Sections datas={tvShowes} title="tvshowes"/>
         </div>
         </div>
+}
     </div>
   )
 }

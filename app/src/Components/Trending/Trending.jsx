@@ -5,8 +5,6 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { Rating } from '@mui/material';
 
-import { fetchTrailer } from '../../Services/api';
-
 
 
 
@@ -26,6 +24,8 @@ const responsive = {
   };
 
 
+
+
 const Trending = ({trend}) => {
 
 
@@ -40,6 +40,7 @@ return(
   autoPlay={true}
   autoPlaySpeed={4000}
   slidesToSlide={1}
+
     >
         {
             trend.map((tren) => (

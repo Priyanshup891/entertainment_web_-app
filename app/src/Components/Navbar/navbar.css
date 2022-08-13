@@ -3,9 +3,9 @@
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    background-color: #000;
-    padding: 2rem 6rem 1rem;
-
+    background-color: var(--dark-blue);
+    height: 70px;
+    padding: 0 6rem;
 }
 
 .navigate_logo img{
