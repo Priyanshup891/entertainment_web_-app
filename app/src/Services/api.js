@@ -4,7 +4,6 @@ const API_URL = "https://api.themoviedb.org/3/trending/all/day?api_key=7a6eb72a4
 const MOVIE_API = "https://api.themoviedb.org/3/movie/popular?api_key=7a6eb72a45fd621fa981631b9589959b&language=en-US&page=1";
 const TV_API = "https://api.themoviedb.org/3/tv/popular?api_key=7a6eb72a45fd621fa981631b9589959b&language=en-US&page=1";
 
-
 export const fetchTrendingData = async () => {
     try{
         return await axios.get(API_URL);
@@ -24,6 +23,22 @@ export const fetchMovies = async () => {
 export const fetchTvShowes = async () => {
     try{
         return await axios.get(TV_API);
+    } catch(error){
+        console.log(error);
+    }
+}
+
+export const fetchMoviesDetails = async (id) => {
+    try{
+        return await axios.get(`https://api.themoviedb.org/3/movie/${id}?api_key=7a6eb72a45fd621fa981631b9589959b&language=en-US`);
+    } catch(error){
+        console.log(error);
+    }
+}
+
+export const fetchTrailer = async (id,type) => {
+    try{
+        return await axios.get(`https://api.themoviedb.org/3/${type}/${id}/videos?api_key=7a6eb72a45fd621fa981631b9589959b&language=en-US`)
     } catch(error){
         console.log(error);
     }

@@ -13,10 +13,12 @@ import { Login } from "./pages/Login";
 const App = () => {
   return (
     <BrowserRouter>
+    <Navbar/>
     <Routes>
       <Route path="/register" element={<Register/>}/>
       <Route path="/login" element={<Login/>}/>
       <Route path="/" element={<Home/>}/>
+      <Route path="/details/:id" element={<Details/>}/>
     </Routes>
     </BrowserRouter>
   );

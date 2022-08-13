@@ -46,7 +46,7 @@ export const Register = () => {
   const handleValidation = () => {
     const { password, confirmPassword, username, email } = values;
 
-    if (password != confirmPassword) {
+    if (password !== confirmPassword) {
       toast.error(
         "password and confirm password should be same.",
         toastOptions

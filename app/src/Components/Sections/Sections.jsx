@@ -1,6 +1,6 @@
 import React from 'react';
 import './sections.css';
-
+import {Link} from 'react-router-dom';
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { Rating } from '@mui/material';
@@ -9,7 +9,7 @@ import { Rating } from '@mui/material';
 const responsive = {
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
-      items: 6
+      items: 5
     },
     tablet: {
       breakpoint: { max: 1024, min: 464 },
@@ -38,6 +38,7 @@ const Sections = ({datas,title}) => {
     >
         {
             datas.map((data) => (
+              <Link to={`/details/${data.id}`}>
                 <div className='content'>
                     <div className='section_image'>
                     <img className='image' src={`https://image.tmdb.org/t/p/w1280${data.poster_path}`} alt="" />
@@ -47,6 +48,7 @@ const Sections = ({datas,title}) => {
                     </div>
                     </div>
                 </div>
+                </Link>
             ))
         }
    

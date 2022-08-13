@@ -1,9 +1,11 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import './trending.css';
 
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { Rating } from '@mui/material';
+
+import { fetchTrailer } from '../../Services/api';
 
 
 
@@ -25,9 +27,10 @@ const responsive = {
 
 
 const Trending = ({trend}) => {
-  return (
-    
 
+
+  
+return(
     <Carousel className="carousel" responsive={responsive} 
     dotListClass="custom-dot-list-style"
   itemClass="carousel-item-padding-40-px"
@@ -63,7 +66,7 @@ const Trending = ({trend}) => {
     </Carousel>
 
 
-  )
+)
 }
 
 export default Trending
