@@ -6,8 +6,7 @@
     flex: 4;
     height: 100%;
     overflow: auto;
-    background-image:linear-gradient(75deg,rgba(0,0,0,0.9),70%,rgba(0,0,0,0.6)), url(../../assets/images/ott.jpg);
-    padding: 2rem 1rem;
+  
     
 }
 

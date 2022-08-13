@@ -31,6 +31,8 @@ const Trending = ({trend}) => {
 
   
 return(
+  <div className='trendingContainer'>
+
     <Carousel className="carousel" responsive={responsive} 
     dotListClass="custom-dot-list-style"
   itemClass="carousel-item-padding-40-px"
@@ -65,7 +67,7 @@ return(
         }
    
     </Carousel>
-
+    </div>
 
 )
 }

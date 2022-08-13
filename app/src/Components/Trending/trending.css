@@ -5,13 +5,11 @@
 }
 
 .container{
-    width: 100%;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
     padding: 0 10rem;
-    margin-bottom: 3rem;
 }
 
 .trending_image{
@@ -83,3 +81,12 @@ h3 span{
     color: rgb(214, 214, 214);
 }
 
+.trendingContainer{
+    background-image:linear-gradient(var(--dark-blue),rgba(0,0,0,0.8),var(--dark-blue)), url(../../assets/images/ott.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+      padding: 2rem 1rem;
+      width: 100%;
+      height: calc(100vh - 70px)
+}

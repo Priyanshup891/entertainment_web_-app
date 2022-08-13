@@ -26,7 +26,7 @@ const Sections = ({datas,title}) => {
 
 
   return (
-    <div>
+    <div className='sectionContainer'>
       <h2>{title}</h2>
         <Carousel className="carousel" responsive={responsive}
     dotListClass="custom-dot-list-style"
