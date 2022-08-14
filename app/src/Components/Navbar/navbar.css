@@ -12,6 +12,10 @@
     height: 24px;
 }
 
+.navigate_logo{
+text-decoration: none;
+}
+
 
 .navigate_logo span{
     font-size: 1.5rem;

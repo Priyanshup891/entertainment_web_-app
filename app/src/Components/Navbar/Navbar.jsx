@@ -7,10 +7,10 @@ import { Link } from 'react-router-dom';
 const Navbar = () => {
   return (
     <div className="nav-bar">
-    <div className="navigate_logo">
+    <Link to="/" className="navigate_logo">
         <img src={logo} alt="" />
         <span>Entertain.</span>
-    </div>
+    </Link>
     <Link to="/search">
     <input type="text" class="trending_navbar-search" placeholder="Search" onKeyUp={(e) => {console.log(e.target.value)}} />
     </Link>

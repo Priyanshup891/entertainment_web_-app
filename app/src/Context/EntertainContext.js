@@ -7,6 +7,8 @@ export const EntertainProvider = ({children}) => {
     const [trending, setTrending] = useState([]);
     const [movies, setMovies] = useState([]);
     const [tvShowes, setTVShowes] = useState([]);
+    const [movieDetail, setMovieDetail] = useState();
+    const [movieVideos, setMovieVideos] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
 
     const fetchTrendingData = async () => {
@@ -15,6 +17,7 @@ export const EntertainProvider = ({children}) => {
             const data = response.data.results;
             console.log(data);
             setTrending(data);
+            setIsLoading(false);
         } catch(error){
             console.log(error.message);
         }
@@ -26,6 +29,7 @@ export const EntertainProvider = ({children}) => {
             const data = response.data.results;
             console.log(data);
             setMovies(data);
+            setIsLoading(false);
         } catch(error){
             console.log(error.message);
         }
@@ -37,6 +41,30 @@ export const EntertainProvider = ({children}) => {
             const data = response.data.results;
             console.log(data);
             setTVShowes(data);
+            setIsLoading(false);
+        } catch(error){
+            console.log(error.message);
+        }
+    }
+
+    const fetchMovieDetail = async (id) => {
+        try{
+            const response = await axios.get(`https://api.themoviedb.org/3/movie/${id}?api_key=7a6eb72a45fd621fa981631b9589959b&language=en-US`)
+            const data = response.data;
+            console.log(data);
+            setMovieDetail(data);
+        } catch(error){
+            console.log(error.message);
+        }
+    }
+
+    const fetchMovieVideos = async (id) => {
+        try{
+            const response = await axios.get(`https://api.themoviedb.org/3/movie/${id}/videos?api_key=7a6eb72a45fd621fa981631b9589959b&language=en-US`)
+            const data = response.data.results;
+            console.log(data);
+            setMovieVideos(data);
+
         } catch(error){
             console.log(error.message);
         }
@@ -56,7 +84,13 @@ export const EntertainProvider = ({children}) => {
             setTVShowes,
             fetchTvShowes,
             isLoading,
-            setIsLoading
+            setIsLoading,
+            movieDetail,
+            setMovieDetail,
+            fetchMovieDetail,
+            movieVideos,
+            setMovieVideos,
+            fetchMovieVideos
         }}
         >
             {children}

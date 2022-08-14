@@ -17,9 +17,6 @@ const Home = () => {
     fetchTrendingData();
     fetchMovies();
     fetchTvShowes();
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 5000);
   }, [])
 
   return (
