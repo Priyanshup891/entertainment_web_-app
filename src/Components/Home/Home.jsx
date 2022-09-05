@@ -26,8 +26,8 @@ const Home = () => {
         <div className='entertainment-showcase'>
         <Trending trend={trending}/>
         <div className='section'>
-        <Sections datas={movies} title="movies"/>
-        <Sections datas={tvShowes} title="tvshowes"/>
+        <Sections datas={movies} title="movie"/>
+        <Sections datas={tvShowes} title="tv"/>
         </div>
         </div>
 }

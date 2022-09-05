@@ -24,19 +24,19 @@ const responsive = {
 
 const Details = () => {
   const {
-    movieDetail,
-    fetchMovieDetail,
+    detail,
+    fetchDetail,
     isLoading,
     setIsLoading,
-    movieVideos,
-    fetchMovieVideos,
+    videos,
+    fetchVideos,
   } = useContext(EntertainContext);
-  let { id } = useParams();
+  let { id, type } = useParams();
 
   useEffect(() => {
     setIsLoading(true);
-    fetchMovieDetail(id);
-    fetchMovieVideos(id);
+    fetchVideos(id,type);
+    fetchDetail(id, type)
     setTimeout(() => {
       setIsLoading(false);
     }, 5000);
@@ -49,12 +49,12 @@ const Details = () => {
       ) : (
         <>
           <div>
-            {movieDetail && (
+            {detail && (
               <div className="movieContainer">
                 <div className="movieContainer-poster_image">
                   <img
                     className="poster_image"
-                    src={`https://image.tmdb.org/t/p/w1280${movieDetail.backdrop_path}`}
+                    src={`https://image.tmdb.org/t/p/w1280${detail.backdrop_path}`}
                     alt="poster"
                   />
                 </div>
@@ -62,19 +62,19 @@ const Details = () => {
                   <div className="detail-movie_image">
                     <img
                       className="movie_image"
-                      src={`https://image.tmdb.org/t/p/w1280${movieDetail.poster_path}`}
+                      src={`https://image.tmdb.org/t/p/w1280${detail.poster_path}`}
                       alt=""
                     />
                   </div>
                   <div className="detail-movie_info">
-                    <h1>{movieDetail.original_title}</h1>
-                    <p>{movieDetail.overview}</p>
+                    <h1>{detail.original_title}</h1>
+                    <p>{detail.overview}</p>
 
                     <div className="detail-movie_info-data">
                       <span className="detail-movie_info-title">Rating:</span>
                       <Rating
                         name="read-only"
-                        value={movieDetail.vote_average / 2}
+                        value={detail.vote_average / 2}
                         precision={0.5}
                         readOnly
                       />
@@ -85,7 +85,7 @@ const Details = () => {
                         Film genres:
                       </span>
                       <div className="genres">
-                        {movieDetail.genres.map((genre) => (
+                        {detail.genres.map((genre) => (
                           <p className="genres-title">{genre.name}</p>
                         ))}
                       </div>
@@ -104,7 +104,7 @@ const Details = () => {
               swipeable={false}
               draggable={false}
             >
-              {movieVideos.map((video) => (
+              {videos.map((video) => (
                 <iframe
                   className="video"
                   src={`https://www.youtube.com/embed/${video.key}`}

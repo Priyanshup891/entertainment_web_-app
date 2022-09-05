@@ -7,8 +7,9 @@ export const EntertainProvider = ({children}) => {
     const [trending, setTrending] = useState([]);
     const [movies, setMovies] = useState([]);
     const [tvShowes, setTVShowes] = useState([]);
-    const [movieDetail, setMovieDetail] = useState();
-    const [movieVideos, setMovieVideos] = useState([]);
+    const [detail,setDetail] = useState();
+    const [videos, setVideos] = useState([]);
+    const [type, setType] = useState("");
     const [isLoading, setIsLoading] = useState(false);
 
     const fetchTrendingData = async () => {
@@ -47,23 +48,25 @@ export const EntertainProvider = ({children}) => {
         }
     }
 
-    const fetchMovieDetail = async (id) => {
+
+
+    const fetchDetail = async (id, type) => {
         try{
-            const response = await axios.get(`https://api.themoviedb.org/3/movie/${id}?api_key=7a6eb72a45fd621fa981631b9589959b&language=en-US`)
+            const response = await axios.get(`https://api.themoviedb.org/3/${type}/${id}?api_key=7a6eb72a45fd621fa981631b9589959b&language=en-US`)
             const data = response.data;
             console.log(data);
-            setMovieDetail(data);
+            setDetail(data);
         } catch(error){
             console.log(error.message);
         }
     }
 
-    const fetchMovieVideos = async (id) => {
+    const fetchVideos = async (id, type) => {
         try{
-            const response = await axios.get(`https://api.themoviedb.org/3/movie/${id}/videos?api_key=7a6eb72a45fd621fa981631b9589959b&language=en-US`)
+            const response = await axios.get(`https://api.themoviedb.org/3/${type}/${id}/videos?api_key=7a6eb72a45fd621fa981631b9589959b&language=en-US`)
             const data = response.data.results;
             console.log(data);
-            setMovieVideos(data);
+            setVideos(data);
 
         } catch(error){
             console.log(error.message);
@@ -85,12 +88,10 @@ export const EntertainProvider = ({children}) => {
             fetchTvShowes,
             isLoading,
             setIsLoading,
-            movieDetail,
-            setMovieDetail,
-            fetchMovieDetail,
-            movieVideos,
-            setMovieVideos,
-            fetchMovieVideos
+            videos,
+            fetchVideos,
+            detail,
+            fetchDetail
         }}
         >
             {children}

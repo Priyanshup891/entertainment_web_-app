@@ -38,7 +38,7 @@ const Sections = ({datas,title}) => {
     >
         {
             datas.map((data) => (
-              <Link to={`/details/${data.id}`}>
+              <Link style={{textDecoration:"none"}} to={`/details/${title}/${data.id}`}>
                 <div className='content'>
                     <div className='section_image'>
                     <img className='image' src={`https://image.tmdb.org/t/p/w1280${data.poster_path}`} alt="" />
