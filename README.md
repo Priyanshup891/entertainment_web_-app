@@ -10,8 +10,8 @@ Data about movies and TV shows is retrieved by the web application through the T
 
 ## Screenshots
 
-![App Screenshot](./app/src/assets/images/readme/readme_1.png)
+![App Screenshot](./src/assets/images/readme/readme_1.png)
 
-![App Screenshot](./app/src/assets/images/readme/readme_2.png)
+![App Screenshot](./src/assets/images/readme/readme_2.png)
 
-![App Screenshot](./app/src/assets/images/readme/readme_3.png)
+![App Screenshot](./src/assets/images/readme/readme_3.png)
